@@ -111,6 +111,13 @@ class LAC(object):
             self.model.custom = Customization()
         self.model.custom.add_word(word, sep)
 
+    def cleanup_word(self):
+        """清除用户添加的单词"""
+        if self.model.custom is None:
+            return
+        self.model.custom.cleanup_word()
+        self.model.custom = None
+
 if __name__ == "__main__":
     print('######### mode = lac ##############')
     lac = LAC('lac_model')

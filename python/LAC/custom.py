@@ -73,6 +73,15 @@ class Customization(object):
         self.dictitem[phrase] = (tags, offset)
         self.ac.add_word(phrase)
 
+
+    def cleanup_word(self):
+        """删除人工干预词典 by mentali"""
+        if self.ac is None:
+            raise Exception("Getting TriedTREE failed.")
+        del self.ac
+        del self.dictitem
+
+
     def load_customization(self, filename, sep=None):
         """装载人工干预词典"""
         self.ac = TriedTree()
